@@ -15,7 +15,7 @@ this repo is intended to house projects from several frameworks
 
 The article itself goes through creation of the rails api, but if you want to see the final result:
 
-``` language-bash
+``` bash
 cd rails_api
 
 # install rails gems
