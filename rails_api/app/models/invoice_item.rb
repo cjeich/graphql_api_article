@@ -14,4 +14,12 @@
 class InvoiceItem < ApplicationRecord
   monetize :price_cents
   belongs_to :invoice
+
+  def total_cents
+    amount * total_cents
+  end
+
+  def total
+    Money.new total_cents
+  end
 end
