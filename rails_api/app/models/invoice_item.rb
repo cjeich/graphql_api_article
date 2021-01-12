@@ -16,7 +16,7 @@ class InvoiceItem < ApplicationRecord
   belongs_to :invoice
 
   def total_cents
-    amount * total_cents
+    amount * price_cents
   end
 
   def total

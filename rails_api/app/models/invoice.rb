@@ -12,4 +12,14 @@
 class Invoice < ApplicationRecord
   belongs_to :creator, class_name: 'User'
   has_many :invoice_items, dependent: :destroy
+
+  def total_cents
+    invoice_items.reduce(0) do |current_total, item|
+      current_total + item.total_cents
+    end
+  end
+
+  def total
+    Money.new total_cents
+  end
 end
