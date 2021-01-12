@@ -11,6 +11,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+
 class InvoiceItem < ApplicationRecord
   monetize :price_cents
   belongs_to :invoice
