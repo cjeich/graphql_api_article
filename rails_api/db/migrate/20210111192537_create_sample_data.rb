@@ -6,13 +6,13 @@ class CreateSampleData < ActiveRecord::Migration[6.0]
                   email: Faker::Internet.email
     end
 
-    250.times do
+    50_000.times do
       invoice = Invoice.create date: Faker::Date.in_date_period(month: 12),
                                number: Faker::IDNumber.spanish_citizen_number,
                                creator: User.order(Arel.sql('RANDOM()')).first
 
       # Invoice Items
-      (5..25).to_a.sample.times do
+      (15..250).to_a.sample.times do
         invoice.invoice_items.create amount: (5..250).to_a.sample,
                                      description: Faker::Hipster.sentence(word_count: 3),
                                      price_cents: (25..250_000).to_a.sample

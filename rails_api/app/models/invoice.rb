@@ -14,9 +14,7 @@ class Invoice < ApplicationRecord
   has_many :invoice_items, dependent: :destroy
 
   def total_cents
-    invoice_items.reduce(0) do |current_total, item|
-      current_total + item.total_cents
-    end
+    invoice_items.sum(:price_cents)
   end
 
   def total
